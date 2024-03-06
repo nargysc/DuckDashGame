@@ -42,11 +42,12 @@ button:hover {
 }
 
 .duck {
-    top: 50%;
+    top: 30%;
     left:50%;
     transform: translateX(-50%);
     position: absolute;
-    width: 10%;
+    width: 150px;
+    height: 150px;
     transition: all 1s;
   
 }
@@ -56,12 +57,16 @@ button:hover {
     height: 100px;
     width: 100px;
     transform: translate(-50%, -50%);
+    pointer-events: none;
 }
-.blood {
-    width: 12%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+.flower {
+  position: absolute;
+  width: 140px;
+  height:140px;
 }
+
+
+
 .cursor{z-index:3;}
-.blood{z-index:-2;}
+.flower{z-index:-2;}
 .duck{z-index:1;}
