@@ -18,9 +18,6 @@ body {
     height: 100vh;
 }
 
- .blood {
-    display: none;
-}
 
 button {
     background-color: rgb(255, 255, 255);
@@ -53,7 +50,7 @@ button:hover {
   
 }
 
-.cursor {
+.cursor,  .blood{
     position: absolute;
     height: 100px;
     width: 100px;
