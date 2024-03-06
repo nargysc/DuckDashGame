@@ -8,7 +8,7 @@ let score = 0;
 let missedCount = 0;
 let unsuccessfulAttempts = 0; // Counter for unsuccessful attempts
 const maxMissedCount = 5;
-const maxUnsuccessfulAttempts = 3;
+const maxUnsuccessfulAttempts = 6;
 
 button.addEventListener('click', function(){
     
@@ -64,6 +64,6 @@ setInterval(function () {
 
 function gameOver() {
     // Perform actions when game is over
-    alert("Game Over! You missed the duck 5 times.");
+    alert("Game Over! You missed the basket 5 times.");
     // You can add more actions here such as resetting the game or redirecting to a new page
 }
