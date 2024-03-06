@@ -47,6 +47,7 @@ button:hover {
     transform: translateX(-50%);
     position: absolute;
     width: 10%;
+    transition: all 1s;
   
 }
 
