@@ -7,11 +7,17 @@ const container = document.querySelector('.container');
 let score = 0;
 let missedCount = 0;
 let unsuccessfulAttempts = 0; 
-
 const maxMissedCount = 5;
 const maxUnsuccessfulAttempts = 5;
+
+if(localStorage.getItem('score')) {
+    score = parseInt(localStorage.getItem('score'));
+    button.innerHTML = "Score " + score;
+    console.log('score');
+}
 button.addEventListener('click', function(){
-const flowerImages = ['flower1.jpg', 'flower2.jpg', 'flower3.jpg'];
+    
+const flowerImages = ['files/flower1.jpg', 'files/flower2.jpg', 'files/flower3.jpg'];
 
 let currentFlowerIndex = 0;
 
@@ -24,6 +30,7 @@ window.addEventListener('click', function (e) {
     if (e.target === duck) {
         score++;
         button.innerHTML = "Score " + score;
+        localStorage.setItem('score', score); // Store the updated score in localStorage
         const newFlower = document.createElement('img');
         newFlower.classList.add('flower');
         newFlower.src = flowerImages[currentFlowerIndex];
@@ -37,13 +44,16 @@ window.addEventListener('click', function (e) {
         audio.play();
            unsuccessfulAttempts = 0; 
         } else {
+            // Clicked on the cursor (duck element)
             missedCount++;
             if (missedCount >= maxMissedCount) {
                 gameOver();
             }
-            unsuccessfulAttempts++;
+            unsuccessfulAttempts++; 
             if (unsuccessfulAttempts >= maxUnsuccessfulAttempts) {
                 gameOver(); 
+            }
+        
     }
 });
 setInterval(function () {
@@ -61,6 +71,7 @@ function resetGame() {
     missedCount = 0;
     unsuccessfulAttempts = 0;
     button.innerHTML = "Score " + score;
+    localStorage.removeItem('score'); // Remove the stored score
     const flowers = document.querySelectorAll('.flower');
     flowers.forEach(function (flower) {
         flower.remove();
