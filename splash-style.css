@@ -1,6 +1,6 @@
 
 body {
-    background: url('ny.jpg');
+    background-color: yellow;
     background-repeat: no-repeat;
     background-size: 120%;
     height: 100vh;
@@ -27,7 +27,7 @@ p {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color:  rgb(20, 25, 18);
     color: white;
     padding: 15px 30px;
     border: none;
@@ -41,10 +41,27 @@ button:hover {
     background-color: #45a049;
 }
 
+@keyframes duckJump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0); 
+    }
+}
+
+.duck {
+    animation: duckJump 1s infinite; 
+      max-width: 100%;
+}
 @media screen and (max-width: 768px) {
-      body {
-    background-size:cover;
-  }
+    body {
+        background-size: cover;
+    }
+
     h1 {
         font-size: 24px;
     }
@@ -57,6 +74,10 @@ button:hover {
         padding: 10px 20px;
         font-size: 16px;
     }
+       .duck {
+        max-width: 40%; /* Adjusted image size */
+    }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -71,5 +92,8 @@ button:hover {
     button {
         padding: 8px 16px;
         font-size: 14px;
+    }
+       .duck {
+        max-width: 30%; /* Adjusted image size */
     }
 }
