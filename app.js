@@ -5,6 +5,10 @@ const audio = document.querySelector('audio');
 const button = document.querySelector('button');
 const container = document.querySelector('.container');
 let score = 0;
+let missedCount = 0;
+let unsuccessfulAttempts = 0; // Counter for unsuccessful attempts
+const maxMissedCount = 5;
+const maxUnsuccessfulAttempts = 3;
 
 button.addEventListener('click', function(){
     
@@ -34,19 +38,32 @@ window.addEventListener('click', function (e) {
             newFlower.style.display = 'none';
         }, 500);
         audio.play();
-    } else if (e.target === cursor) {
-        // Clicked on the cursor (duck element)
-        // Handle cursor click event here if needed
+           unsuccessfulAttempts = 0; // Reset unsuccessful attempts counter
+        } else {
+            // Clicked on the cursor (duck element)
+            missedCount++;
+            if (missedCount >= maxMissedCount) {
+                gameOver();
+            }
+            unsuccessfulAttempts++; // Increment unsuccessful attempts counter
+            if (unsuccessfulAttempts >= maxUnsuccessfulAttempts) {
+                gameOver(); // Game over if maximum unsuccessful attempts reached
+            }
+        
     }
 });
-
 setInterval(function () {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
     const randLeft = Math.random() * screenWidth - 150;
     const randTop = Math.random() * screenHeight - 150;
     duck.style.left = randLeft + 'px';
-    duck.style.top = randTop + 'px';
-}, 1400);
+    duck.style.top = randTop + 'px'; 
+    }, 1400);
+});
 
-})
+function gameOver() {
+    // Perform actions when game is over
+    alert("Game Over! You missed the duck 5 times.");
+    // You can add more actions here such as resetting the game or redirecting to a new page
+}
