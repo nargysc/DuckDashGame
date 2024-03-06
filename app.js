@@ -21,6 +21,31 @@ const flowerImages = ['files/flower1.jpg', 'files/flower2.jpg', 'files/flower3.j
 
 let currentFlowerIndex = 0;
 
+function updateCursorPos(e) {
+    // Prevent default touch behavior
+    e.preventDefault();
+    
+    if (e.touches) {
+        // Touch event
+        const touch = e.touches[0]; // Get the first touch event
+        moveCursor(touch.pageX, touch.pageY); // Move cursor to touch position
+    } else {
+        // Click event (for non-touch devices)
+        moveCursor(e.pageX, e.pageY); // Move cursor to click position
+    }
+}
+
+// Function to move cursor to specified position
+function moveCursor(x, y) {
+    cursor.style.left = x + "px"; // Update cursor position horizontally
+    cursor.style.top = y + "px"; // Update cursor position vertically
+}
+
+// Add touch event listener to the window
+window.addEventListener('touchmove', updateCursorPos);
+
+// Add click event listener to the window (for non-touch devices)
+window.addEventListener('click', updateCursorPos);
 window.addEventListener('mousemove', function (e) {
     cursor.style.left = e.pageX + "px";
     cursor.style.top = e.pageY + "px";
