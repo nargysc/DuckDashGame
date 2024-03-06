@@ -6,6 +6,9 @@ const button = document.querySelector('button');
 const container = document.querySelector('.container');
 let score = 0;
 
+button.addEventListener('click', function(){
+    
+
 const flowerImages = ['flower1.jpg', 'flower2.jpg', 'flower3.jpg'];
 
 let currentFlowerIndex = 0;
@@ -45,3 +48,5 @@ setInterval(function () {
     duck.style.left = randLeft + 'px';
     duck.style.top = randTop + 'px';
 }, 1400);
+
+})
