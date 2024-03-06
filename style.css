@@ -50,9 +50,17 @@ button:hover {
   
 }
 
-.cursor,  .blood{
+.cursor{
     position: absolute;
     height: 100px;
     width: 100px;
     transform: translate(-50%, -50%);
 }
+.blood {
+    width: 12%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+.cursor{z-index:3;}
+.blood{z-index:-2;}
+.duck{z-index:1;}

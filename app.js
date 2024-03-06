@@ -4,6 +4,8 @@ blood = document.querySelector(' .blood');
 audio = document.querySelector('audio');
 button = document.querySelector('button');
 
+//screenWidth = body.offsetWidth;
+//screenHeight = body.offsetHeight;
 
 window.addEventListener('mousemove',function(e){
     cursor.style.left = e.pageX + "px";
